@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+          prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.abionics.ChessPiecesMovesGenerator.Controller">
+    <columnConstraints>
+        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="400.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+    </rowConstraints>
+    <children>
+        <Canvas fx:id="boardCanvas" height="400.0" width="400.0"/>
+        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+            <children>
+                <Label text="Chess piece">
+                    <font>
+                        <Font name="System Bold" size="18.0"/>
+                    </font>
+                </Label>
+                <ComboBox fx:id="typeComboBox" prefWidth="150.0">
+                    <VBox.margin>
+                        <Insets top="20.0"/>
+                    </VBox.margin>
+                </ComboBox>
+                <Label text="Board size">
+                    <font>
+                        <Font name="System Bold" size="18.0"/>
+                    </font>
+                    <VBox.margin>
+                        <Insets top="70.0"/>
+                    </VBox.margin>
+                </Label>
+                <Slider fx:id="sizeSlider" blockIncrement="1" cache="true" majorTickUnit="1" max="12" min="1"
+                        minorTickCount="0" prefWidth="250.0" showTickLabels="true" showTickMarks="true"
+                        snapToTicks="true" value="8">
+                    <padding>
+                        <Insets right="10.0" top="20.0"/>
+                    </padding>
+                </Slider>
+                <Label text="Delay">
+                    <font>
+                        <Font name="System Bold" size="18.0"/>
+                    </font>
+                    <padding>
+                        <Insets top="55.0"/>
+                    </padding>
+                </Label>
+                <Slider fx:id="delaySlider" blockIncrement="1" cache="true" majorTickUnit="50" max="500"
+                        minorTickCount="0" prefWidth="250.0" showTickLabels="true" showTickMarks="true"
+                        value="50">
+                    <padding>
+                        <Insets right="10.0" top="20.0"/>
+                    </padding>
+                </Slider>
+                <Button fx:id="generateButton" defaultButton="true" mnemonicParsing="false" text="Generate">
+                    <VBox.margin>
+                        <Insets top="55.0"/>
+                    </VBox.margin>
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Button>
+            </children>
+        </VBox>
+    </children>
+</GridPane>
