@@ -1,5 +1,5 @@
 package com.abionics.ChessPiecesMovesGenerator.core;
 
 public enum ChessPieces {
-    KNIGHT, ROOK
+    PAWN, KNIGHT, BISHOP, ROOK, QUEEN, KING
 }

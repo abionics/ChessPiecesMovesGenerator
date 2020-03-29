@@ -1,8 +1,6 @@
 package com.abionics.ChessPiecesMovesGenerator.core;
 
-import com.abionics.ChessPiecesMovesGenerator.core.chesspieces.ChessPiece;
-import com.abionics.ChessPiecesMovesGenerator.core.chesspieces.Knight;
-import com.abionics.ChessPiecesMovesGenerator.core.chesspieces.Rook;
+import com.abionics.ChessPiecesMovesGenerator.core.chesspieces.*;
 import javafx.application.Platform;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -26,14 +24,24 @@ public class Generator {
     public HashMap<Integer, ArrayList<Integer>> generate(ChessPieces type, int delay) {
         ChessPiece chessPiece;
         switch (type) {
-            case KNIGHT: {
+            case PAWN:
+                chessPiece = new Pawn();
+                break;
+            case KNIGHT:
                 chessPiece = new Knight();
                 break;
-            }
-            case ROOK: {
+            case BISHOP:
+                chessPiece = new Bishop();
+                break;
+            case ROOK:
                 chessPiece = new Rook();
                 break;
-            }
+            case QUEEN:
+                chessPiece = new Queen();
+                break;
+            case KING:
+                chessPiece = new King();
+                break;
             default:
                 throw new RuntimeException("Unknown chess piece type");
         }
@@ -53,8 +61,8 @@ public class Generator {
     private HashMap<Point, Integer> enumerateBoard(Point size) {
         HashMap<Point, Integer> enumeration = new HashMap<>();
         int k = 1;
-        for (int x = 0; x < size.x; x++) {
-            for (int y = 0; y < size.y; y++) {
+        for (int y = 0; y < size.y; y++) {
+            for (int x = 0; x < size.x; x++) {
                 Point point = new Point(x, y);
                 enumeration.put(point, k);
                 k++;

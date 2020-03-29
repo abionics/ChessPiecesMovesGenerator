@@ -6,7 +6,7 @@ import java.util.HashSet;
 
 public class Rook implements ChessPiece {
     @Override
-    public HashSet<Point> available(Point size) {
+    public HashSet<Point> available(Point position, Point size) {
         HashSet<Point> available = new HashSet<>(2 * (size.x + size.y) - 2);
         for (int x = -size.x + 1; x < size.x; x++)
             available.add(new Point(x, 0));
